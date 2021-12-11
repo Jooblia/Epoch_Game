@@ -24,9 +24,8 @@ public class TextCollider : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Return))
         {
-
-
-            if (collision.gameObject.tag.ToString() == "Table")
+            
+            if (collision.gameObject.name == "Table")
             {
                 textBox.text = "An uninteresting table.";
 
