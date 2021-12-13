@@ -7,22 +7,15 @@ public class TextCollider : MonoBehaviour
 {
     public Text textBox;
     public GameObject player;
+    bool enter = false;
     private PlayerMovement movement;
     void Start()
     {
         textBox.text = "";
         movement = GetComponent<PlayerMovement>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    bool enter = false;
+    }   
     private void OnTriggerStay2D(Collider2D collision)
-    {
-        
+    {       
         if (Input.GetKey(KeyCode.Return))
         {
             enter = true;
@@ -47,7 +40,6 @@ public class TextCollider : MonoBehaviour
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
                 enter = false;
             }
-        }
-        
+        }        
     }
 }
