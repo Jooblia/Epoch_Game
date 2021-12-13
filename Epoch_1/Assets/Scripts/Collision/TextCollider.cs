@@ -19,16 +19,17 @@ public class TextCollider : MonoBehaviour
     {
 
     }
-
+    bool enter = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
+        
         if (Input.GetKey(KeyCode.Return))
         {
-            
+            enter = true;
             if (collision.gameObject.name == "Table")
             {
                 textBox.text = "An uninteresting table.";
-
+                
                 //while (!Input.GetKeyDown(KeyCode.Z))
                 //{
                 //    movement.enabled = false;
@@ -37,5 +38,16 @@ public class TextCollider : MonoBehaviour
                 //movement.enabled = true;
             }
         }
+        if (enter == true)
+        {
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+            if (Input.GetKey(KeyCode.Z))
+            {
+                textBox.text = "";
+                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+                enter = false;
+            }
+        }
+        
     }
 }
