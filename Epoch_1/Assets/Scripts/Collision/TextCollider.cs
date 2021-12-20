@@ -18,26 +18,22 @@ public class TextCollider : MonoBehaviour
     {       
         if (Input.GetKey(KeyCode.Return))
         {
+
             enter = true;
             if (collision.gameObject.name == "Table")
             {
                 textBox.text = "An uninteresting table.";
-                
-                //while (!Input.GetKeyDown(KeyCode.Z))
-                //{
-                //    movement.enabled = false;
-                //}
-                //textBox.text = "";
-                //movement.enabled = true;
             }
         }
         if (enter == true)
         {
-            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+            //GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().moveSpeed = 0;
             if (Input.GetKey(KeyCode.Z))
             {
                 textBox.text = "";
-                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+                //GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().moveSpeed = 5;
                 enter = false;
             }
         }        
